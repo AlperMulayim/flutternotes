@@ -2,6 +2,7 @@ import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_food_delivery_ui/data/data.dart';
+import 'package:flutter_food_delivery_ui/widgets/recent_order.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -29,7 +30,6 @@ class HomeScreen extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: TextField(
@@ -45,7 +45,8 @@ class HomeScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30.0),
                       borderSide: BorderSide(width: 0.8,color: Theme.of(context).primaryColor))),
             ),
-          )
+          ),
+          RecentOrders(),
         ],
       ),
     );
