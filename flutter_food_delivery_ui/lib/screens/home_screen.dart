@@ -27,6 +27,27 @@ class HomeScreen extends StatelessWidget {
           )),
         ],
       ),
+      body: ListView(
+        children: <Widget>[
+
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: TextField(
+
+              decoration: InputDecoration(
+                  hintText: "Search Restaurant",
+                  prefixIcon: Icon(Icons.search),
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.close),
+                    onPressed: () {},
+                  ),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                      borderSide: BorderSide(width: 0.8,color: Theme.of(context).primaryColor))),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
