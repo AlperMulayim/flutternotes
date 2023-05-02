@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_food_delivery_ui/data/data.dart';
 import 'package:flutter_food_delivery_ui/models/restaurant.dart';
@@ -5,47 +6,51 @@ import 'package:flutter_food_delivery_ui/models/restaurant.dart';
 import 'package:flutter_food_delivery_ui/widgets/recent_order.dart';
 
 import '../widgets/rating_stars.dart';
+import '../screens/restaurant_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key key}) : super(key: key);
 
-  buildRestaurants() {
+  buildRestaurants(BuildContext context) {
     List<Widget> restaurantWidgets = [];
 
     restaurants.forEach((Restaurant restaurant) => {
-          restaurantWidgets.add(Container(
-            margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(15.0),
-                border: Border.all(width: 1.0, color: Colors.grey[200])),
-            child: Row(children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(15.0),
-                child: Image(
-                  image: AssetImage(restaurant.imageUrl),
-                  height: 150.0,
-                  width: 150.0,
-                  fit: BoxFit.cover,
+          restaurantWidgets.add(GestureDetector(
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder:((_) =>  RestaurantScreen(restaurant:restaurant)))),
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15.0),
+                  border: Border.all(width: 1.0, color: Colors.grey[200])),
+              child: Row(children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(15.0),
+                  child: Image(
+                    image: AssetImage(restaurant.imageUrl),
+                    height: 150.0,
+                    width: 150.0,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              Container(
-                margin: EdgeInsets.all(12.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(restaurant.name,style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),),
-                    SizedBox(height: 4.0,),
-                    RatingStars(restaurant.rating),
-                    SizedBox(height: 4.0,),
-                    Text(restaurant.address,style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600),),
-                    SizedBox(height: 4.0,),
-                    Text("2 km away",style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.w600))
-                  ],
-                ),
-              )
-            ]),
+                Container(
+                  margin: EdgeInsets.all(12.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(restaurant.name,style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600,overflow: TextOverflow.ellipsis),),
+                      SizedBox(height: 4.0,),
+                      RatingStars(restaurant.rating),
+                      SizedBox(height: 4.0,),
+                      Text(restaurant.address,style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600,overflow: TextOverflow.ellipsis),),
+                      SizedBox(height: 4.0,),
+                      Text("2 km away",style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.w600,overflow: TextOverflow.ellipsis))
+                    ],
+                  ),
+                )
+              ]),
+            ),
           ))
         });
 
@@ -107,7 +112,7 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          buildRestaurants()
+          buildRestaurants(context)
         ],
       ),
     );
