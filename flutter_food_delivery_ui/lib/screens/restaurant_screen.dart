@@ -79,27 +79,35 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
                   )
                 ],
               ),
-              SizedBox(height: 20.0,),
+              SizedBox(
+                height: 20.0,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
                     width: 100.0,
                     child: TextButton(
-                      onPressed: (() {}),
-                      child: Text("Reviews",style: TextStyle(color: Colors.white),)
-                    ),
-                    decoration:
-                        BoxDecoration(color: Theme.of(context).primaryColor, borderRadius: BorderRadius.circular(15.0)),
+                        onPressed: (() {}),
+                        child: Text(
+                          "Reviews",
+                          style: TextStyle(color: Colors.white),
+                        )),
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
+                        borderRadius: BorderRadius.circular(15.0)),
                   ),
-                    Container(
+                  Container(
                     width: 100.0,
                     child: TextButton(
-                      onPressed: (() {}),
-                      child: Text("Contact",style: TextStyle(color: Colors.white),)
-                    ),
-                    decoration:
-                        BoxDecoration(color: Theme.of(context).primaryColor, borderRadius: BorderRadius.circular(15.0)),
+                        onPressed: (() {}),
+                        child: Text(
+                          "Contact",
+                          style: TextStyle(color: Colors.white),
+                        )),
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
+                        borderRadius: BorderRadius.circular(15.0)),
                   ),
                 ],
               )
