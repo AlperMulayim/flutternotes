@@ -4,6 +4,8 @@ import 'package:flutter_food_delivery_ui/models/restaurant.dart';
 
 import 'package:flutter_food_delivery_ui/widgets/recent_order.dart';
 
+import '../widgets/rating_stars.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key key}) : super(key: key);
 
