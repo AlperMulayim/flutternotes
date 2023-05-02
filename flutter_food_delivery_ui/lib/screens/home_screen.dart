@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_food_delivery_ui/data/data.dart';
 import 'package:flutter_food_delivery_ui/models/restaurant.dart';
@@ -16,7 +15,11 @@ class HomeScreen extends StatelessWidget {
 
     restaurants.forEach((Restaurant restaurant) => {
           restaurantWidgets.add(GestureDetector(
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder:((_) =>  RestaurantScreen(restaurant:restaurant)))),
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: ((_) =>
+                        RestaurantScreen(restaurant: restaurant)))),
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
               decoration: BoxDecoration(
@@ -26,11 +29,14 @@ class HomeScreen extends StatelessWidget {
               child: Row(children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(15.0),
-                  child: Image(
-                    image: AssetImage(restaurant.imageUrl),
-                    height: 150.0,
-                    width: 150.0,
-                    fit: BoxFit.cover,
+                  child: Hero(
+                    tag: restaurant.imageUrl,
+                    child: Image(
+                      image: AssetImage(restaurant.imageUrl),
+                      height: 150.0,
+                      width: 150.0,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 Container(
@@ -39,13 +45,35 @@ class HomeScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(restaurant.name,style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600,overflow: TextOverflow.ellipsis),),
-                      SizedBox(height: 4.0,),
+                      Text(
+                        restaurant.name,
+                        style: TextStyle(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w600,
+                            overflow: TextOverflow.ellipsis),
+                      ),
+                      SizedBox(
+                        height: 4.0,
+                      ),
                       RatingStars(restaurant.rating),
-                      SizedBox(height: 4.0,),
-                      Text(restaurant.address,style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600,overflow: TextOverflow.ellipsis),),
-                      SizedBox(height: 4.0,),
-                      Text("2 km away",style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.w600,overflow: TextOverflow.ellipsis))
+                      SizedBox(
+                        height: 4.0,
+                      ),
+                      Text(
+                        restaurant.address,
+                        style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w600,
+                            overflow: TextOverflow.ellipsis),
+                      ),
+                      SizedBox(
+                        height: 4.0,
+                      ),
+                      Text("2 km away",
+                          style: TextStyle(
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.w600,
+                              overflow: TextOverflow.ellipsis))
                     ],
                   ),
                 )

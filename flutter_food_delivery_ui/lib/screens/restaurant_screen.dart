@@ -17,11 +17,14 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
       body: ListView(children: [
         Stack(
           children: [
-            Image(
-                height: 220.0,
-                width: MediaQuery.of(context).size.width,
-                fit: BoxFit.cover,
-                image: AssetImage(widget.restaurant.imageUrl)),
+            Hero(
+              tag: widget.restaurant.imageUrl,
+              child: Image(
+                  height: 220.0,
+                  width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.cover,
+                  image: AssetImage(widget.restaurant.imageUrl)),
+            ),
             Padding(
               padding:
                   const EdgeInsets.symmetric(vertical: 50.0, horizontal: 20.0),
